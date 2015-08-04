@@ -2,7 +2,7 @@
 <resources>
 
     <string name="app_name">MusicApp</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="hello_world">Test</string>
     <string name="action_settings">Settings</string>
 
 </resources>
