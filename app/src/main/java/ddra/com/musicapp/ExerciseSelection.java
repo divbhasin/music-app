@@ -1,12 +1,15 @@
 package ddra.com.musicapp;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 
 public class ExerciseSelection extends ActionBarActivity {
+    public final static String MESSAGE_EXERSEL = "ddra.com.musicapp.MESSAGE_EXERSEL";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,5 +37,34 @@ public class ExerciseSelection extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void goToExerciseOptions (View v) {
+        Intent exerOps = new Intent (this, ExerciseOptions.class);
+        String typeSelected;
+        switch (v.getId()) {
+            case R.id.exerSel_btn_intervals:
+                typeSelected = "Intervals";
+                break;
+            case R.id.exerSel_btn_scales:
+                typeSelected = "Scales";
+                break;
+            case R.id.exerSel_btn_chords:
+                typeSelected = "Chords";
+                break;
+            case R.id.exerSel_btn_meloDict:
+                typeSelected = "Melodic Dictation";
+                break;
+            case R.id.exerSel_btn_rhythDict:
+                typeSelected = "Rhythmic Dictation";
+                break;
+            default:
+                typeSelected = "ERROR";
+        }
+        exerOps.putExtra (MESSAGE_EXERSEL, typeSelected);
+        startActivity (exerOps);
+    }
+
+    public void thisthing (View v) {
     }
 }

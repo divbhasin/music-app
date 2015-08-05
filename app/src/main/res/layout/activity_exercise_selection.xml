@@ -1,12 +1,67 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="ddra.com.musicapp.ExerciseSelection">
+    tools:context="ddra.com.musicapp.ExerciseSelection"
+    android:orientation="vertical">
 
-    <TextView android:text="@string/hello_world" android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
 
-</RelativeLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/exerSel_txt_ins"
+        android:id="@+id/textView"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="10dp" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/exerSel_btn_intervals"
+        android:id="@+id/exerSel_btn_intervals"
+        android:layout_gravity="center_horizontal"
+        android:onClick="goToExerciseOptions"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/exerSel_btn_scales"
+        android:id="@+id/exerSel_btn_scales"
+        android:layout_gravity="center_horizontal"
+        android:onClick="goToExerciseOptions"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/exerSel_btn_chords"
+        android:id="@+id/exerSel_btn_chords"
+        android:layout_gravity="center_horizontal"
+        android:onClick="goToExerciseOptions"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/exerSel_btn_meloDict"
+        android:id="@+id/exerSel_btn_meloDict"
+        android:layout_gravity="center_horizontal"
+        android:onClick="goToExerciseOptions"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/exerSel_btn_rhythDict"
+        android:id="@+id/exerSel_btn_rhythDict"
+        android:layout_gravity="center_horizontal"
+        android:onClick="goToExerciseOptions"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/exerSel_btn_random"
+        android:id="@+id/exerSel_btn_random"
+        android:layout_gravity="center_horizontal" />
+
+</LinearLayout>
