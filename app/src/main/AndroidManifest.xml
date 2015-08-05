@@ -16,6 +16,22 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".ExerciseSelection"
+            android:label="@string/title_activity_exercise_selection"
+            android:parentActivityName=".MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="ddra.com.musicapp.MainActivity" />
+        </activity>
+        <activity
+            android:name=".ExerciseOptions"
+            android:label="@string/title_activity_exercise_options"
+            android:parentActivityName=".ExerciseSelection" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="ddra.com.musicapp.ExerciseSelection" />
+        </activity>
     </application>
 
 </manifest>
