@@ -1,8 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">MusicApp</string>
-    <string name="hello_world">Test</string>
+
     <string name="action_settings">Settings</string>
 
+    <!--Main Menu-->
+    <string name="app_name">MusicApp</string>
+    <string name="main_txt_catchphrase">STAND-IN</string>
+    <!--buttons-->
+        <string name ="main_btn_exercise">Exercises</string>
+        <string name="main_btn_perfStats">Performance Statistics</string>
+    <string name="main_txt_devInfo">Developer Info 2015</string>
+    <!--Exercise Selection-->
+    <string name="app_name">MusicApp</string>
+    <!--buttons-->
+        <string name ="exerSel_btn_intervals">Intervals</string>
+        <string name="exerSel_btn_scales">Scales</string>
+    <string name="exerSel_btn_chords">Chords</string>
+    <string name="exerSel_btn_meloDict">Melodic Dictation</string>
+    <string name="exerSel_btn_rhythDict">Rhythmic Dictation</string>
+    <string name="title_activity_exercise_selection">ExerciseSelection</string>
+
+    <string name="hello_world">Hello world!</string>
 </resources>
