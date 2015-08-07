@@ -64,7 +64,4 @@ public class ExerciseSelection extends ActionBarActivity {
         exerOps.putExtra (MESSAGE_EXERSEL, typeSelected);
         startActivity (exerOps);
     }
-
-    public void thisthing (View v) {
-    }
 }
