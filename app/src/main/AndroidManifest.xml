@@ -32,6 +32,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="ddra.com.musicapp.ExerciseSelection" />
         </activity>
+        <activity
+            android:name=".MelodicDictation"
+            android:label="@string/title_activity_melodic_dictation"
+            android:parentActivityName=".ExerciseSelection" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="ddra.com.musicapp.ExerciseSelection" />
+        </activity>
     </application>
 
 </manifest>

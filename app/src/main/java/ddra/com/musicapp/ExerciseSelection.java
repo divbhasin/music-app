@@ -64,4 +64,9 @@ public class ExerciseSelection extends ActionBarActivity {
         exerOps.putExtra (MESSAGE_EXERSEL, typeSelected);
         startActivity (exerOps);
     }
+
+    public void goToMelodicDictationScreen(View v) {
+        Intent go = new Intent(this, MelodicDictation.class);
+        startActivity(go);
+    }
 }

@@ -47,7 +47,7 @@
         android:text="@string/exerSel_btn_meloDict"
         android:id="@+id/exerSel_btn_meloDict"
         android:layout_gravity="center_horizontal"
-        android:onClick="goToExerciseOptions"/>
+        android:onClick="goToMelodicDictationScreen"/>
 
     <Button
         android:layout_width="match_parent"

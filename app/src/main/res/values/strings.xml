@@ -3,28 +3,36 @@
 
     <string name="action_settings">Settings</string>
 
-    <!--Main Menu-->
+    <!-- Main Menu -->
     <string name="app_name">MusicApp</string>
     <string name="main_txt_catchphrase">STAND-IN</string>
-    <!--buttons-->
-        <string name ="main_btn_exercise">Exercises</string>
-        <string name="main_btn_perfStats">Performance Statistics</string>
-        <string name="main_txt_devInfo">Developer Info 2015</string>
+    <!-- buttons -->
+    <string name="main_btn_exercise">Exercises</string>
+    <string name="main_btn_perfStats">Performance Statistics</string>
+    <string name="main_txt_devInfo">Developer Info 2015</string>
 
-    <!--Exercise Selection-->
+    <!-- Exercise Selection -->
     <string name="title_activity_exercise_selection">Exercise Selection</string>
     <string name="exerSel_txt_ins">Select an exercise to begin!</string>
-    <!--buttons-->
-        <string name ="exerSel_btn_intervals">Intervals</string>
-        <string name="exerSel_btn_scales">Scales</string>
-        <string name="exerSel_btn_chords">Chords</string>
-        <string name="exerSel_btn_meloDict">Melodic Dictation</string>
-        <string name="exerSel_btn_rhythDict">Rhythmic Dictation</string>
-        <string name="exerSel_btn_random">Randomize All!</string>
+    <!-- buttons -->
+    <string name="exerSel_btn_intervals">Intervals</string>
+    <string name="exerSel_btn_scales">Scales</string>
+    <string name="exerSel_btn_chords">Chords</string>
+    <string name="exerSel_btn_meloDict">Melodic Dictation</string>
+    <string name="exerSel_btn_rhythDict">Rhythmic Dictation</string>
+    <string name="exerSel_btn_random">Randomize All!</string>
 
-    <!--Exercise Options-->
+    <!-- Exercise Options -->
     <string name="title_activity_exercise_options">ExerciseOptions</string>
-    <!--buttons-->
-        <string name="exerOps_btn_start">Start Exercise!</string>
+    <!-- buttons -->
+    <string name="exerOps_btn_start">Start Exercise!</string>
+    <string name="title_activity_melodic_dictation">MelodicDictation</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="seek_bar">00</string>
+    <string name="notes_ascending">Ascending</string>
+    <string name="notes_descending">Descending</string>
+    <string name="notes_melodic">Harmonic</string>
+    <string name="notes_harmonic">Melodic</string>
+    <string name="seek_bar_number">00</string>
 
 </resources>
