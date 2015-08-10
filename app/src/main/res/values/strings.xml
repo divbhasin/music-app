@@ -24,7 +24,18 @@
 
     <!--Exercise Options-->
     <string name="title_activity_exercise_options">ExerciseOptions</string>
-    <!--buttons-->
+    <!--Labels-->
+        <string name="exerOps_txt_qNum">Number of Questions</string>
+        <string name="exerOps_txt_type">Type</string>
+        <!--toggle selections-->
+            <string name="exerOps_tBtn_ascend">Ascending</string>
+            <string name="exerOps_tBtn_descend">Descending</string>
+        <string name="exerOps_txt_timing">Timing</string>
+        <!--toggle selections-->
+            <string name="exerOps_tBtn_melo">Melodic</string>
+            <string name="exerOps_tBtn_harm">Harmonic</string>
+
+        <string name="exerOps_btn_selectAll">Select All</string>
         <string name="exerOps_btn_start">Start Exercise!</string>
 
 </resources>
