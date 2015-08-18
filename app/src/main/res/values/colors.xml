@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--color name="bOff">#81E4DA</color-->
+    <!--color name="bOn">#5DA399</color-->
+    <color name="grey">#555555</color>
+    <color name="white">#FFFFFF</color>
+</resources>

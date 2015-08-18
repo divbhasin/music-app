@@ -39,27 +39,29 @@ public class ExerciseSelection extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    //go to ExerciseOptions Activity
     public void goToExerciseOptions (View v) {
         Intent exerOps = new Intent (this, ExerciseOptions.class);
-        String typeSelected;
+        //define and pass type of exercise selected to ExerciseOptions Activity
+        int typeSelected;
         switch (v.getId()) {
             case R.id.exerSel_btn_intervals:
-                typeSelected = "Intervals";
+                typeSelected = 0; //INTERVALS
                 break;
             case R.id.exerSel_btn_scales:
-                typeSelected = "Scales";
+                typeSelected = 1; //SCALES
                 break;
             case R.id.exerSel_btn_chords:
-                typeSelected = "Chords";
+                typeSelected = 2; //CHORDS
                 break;
             case R.id.exerSel_btn_meloDict:
-                typeSelected = "Melodic Dictation";
+                typeSelected = 3; //MELODIC DICTATION
                 break;
             case R.id.exerSel_btn_rhythDict:
-                typeSelected = "Rhythmic Dictation";
+                typeSelected = 4; //RHYTHMIC DICTATION
                 break;
             default:
-                typeSelected = "ERROR";
+                typeSelected = -1; //ERROR
         }
         exerOps.putExtra (MESSAGE_EXERSEL, typeSelected);
         startActivity (exerOps);

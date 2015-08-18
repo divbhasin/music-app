@@ -6,22 +6,33 @@
     <!-- Main Menu -->
     <string name="app_name">MusicApp</string>
     <string name="main_txt_catchphrase">STAND-IN</string>
+<<<<<<< HEAD
     <!-- buttons -->
     <string name="main_btn_exercise">Exercises</string>
+=======
+    <!--buttons-->
+    <string name ="main_btn_exercise">Exercises</string>
+>>>>>>> 81a75f22c895c7bc6bd3dbe089334bca0af48092
     <string name="main_btn_perfStats">Performance Statistics</string>
     <string name="main_txt_devInfo">Developer Info 2015</string>
 
     <!-- Exercise Selection -->
     <string name="title_activity_exercise_selection">Exercise Selection</string>
     <string name="exerSel_txt_ins">Select an exercise to begin!</string>
+<<<<<<< HEAD
     <!-- buttons -->
     <string name="exerSel_btn_intervals">Intervals</string>
+=======
+    <!--buttons-->
+    <string name ="exerSel_btn_intervals">Intervals</string>
+>>>>>>> 81a75f22c895c7bc6bd3dbe089334bca0af48092
     <string name="exerSel_btn_scales">Scales</string>
     <string name="exerSel_btn_chords">Chords</string>
     <string name="exerSel_btn_meloDict">Melodic Dictation</string>
     <string name="exerSel_btn_rhythDict">Rhythmic Dictation</string>
     <string name="exerSel_btn_random">Randomize All!</string>
 
+<<<<<<< HEAD
     <!-- Exercise Options -->
     <string name="title_activity_exercise_options">ExerciseOptions</string>
     <!-- buttons -->
@@ -34,5 +45,46 @@
     <string name="notes_melodic">Harmonic</string>
     <string name="notes_harmonic">Melodic</string>
     <string name="seek_bar_number">00</string>
+=======
+    <!--Exercise Options-->
+    <string name="title_activity_exercise_options">Exercise Options</string>
+    <string name="title_activity_interval_options">Interval Training Options</string>
+    <string name = "title_activity_scale_options">Scale Training Options</string>
+    <string name = "title_activity_chord_options">Chord Training Options</string>
+    <!--Universal Labels-->
+    <string name="exerOps_txt_dir">Direction</string>
+    <string name="exerOps_rb_ascend">Ascending</string>
+    <string name="exerOps_rb_descend">Descending</string>
+    <string name="exerOps_rb_any">Any</string>
+    <string name="exerOps_btn_selectAll">Select All</string>
+    <string name="exerOps_btn_start">Start Exercise!</string>
+    <string name="exerOps_txt_qNum">Number of Questions</string>
+    <!--Intervals Options-->
+    <!--toggle labels-->
+    <string name="intervalOps_txt_type">Type</string>
+    <string name="intervalOps_txt_selLbl">Interval Selection</string>
+    <!--toggle selections-->
+    <string name="intervalOps_tBtn_melo">Melodic</string>
+    <string name="intervalOps_tBtn_harm">Harmonic</string>
+
+    <!--Scale Options-->
+    <string name = "scaleOps_txt_selLbl">Scale Selection</string>
+
+    <!--Chord Options-->
+    <!--toggle labels-->
+    <string name = "chordOps_txt_inv">Inversions</string>
+    <string name = "chordOps_cb_inv">Toggle Inversions?</string>
+    <string name = "chordOps_txt_voi">Voicing</string>
+    <!--toggle selections-->
+    <string name = "chordOps_rb_cd">Closed</string>
+    <string name = "chordOps_rb_op">Open</string>
+
+    <string name = "chordOps_txt_selLbl">Chord Selection</string>
+    <string name="title_activity_quiz">Quiz</string>
+    <string name="hello_world">Hello world!</string>
+
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+>>>>>>> 81a75f22c895c7bc6bd3dbe089334bca0af48092
 
 </resources>
