@@ -36,20 +36,85 @@
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:id="@+id/exerOps_txt_sbProgress"
                 android:layout_gravity="center_vertical"
-                android:layout_weight="1"
-                android:text="000" />
+                android:layout_weight="1" />
         </LinearLayout>
 
-        <!--fragment
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:name="ddra.com.musicapp.ExerciseOptions_Intervals"
-            android:id="@+id/fragment" /-->
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/exerOps_txt_type"
+            android:id="@+id/exerOps_txt_type"
+            />
 
-        <FrameLayout
+        <LinearLayout
+            android:orientation="horizontal"
             android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ToggleButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:textOn="@string/exerOps_tBtn_ascend"
+                android:textOff="@string/exerOps_tBtn_ascend"
+                android:id="@+id/exerOps_tBtn_ascend"
+                android:layout_weight="1"
+                android:background="@drawable/my_btn_toggle"
+                android:textColor="@drawable/my_btn_toggle"
+                android:checked="false" />
+
+            <ToggleButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:textOn="@string/exerOps_tBtn_descend"
+                android:textOff="@string/exerOps_tBtn_descend"
+                android:id="@+id/exerOps_tBtn_descend"
+                android:layout_weight="1"
+                android:checked="false"
+                android:background="@drawable/my_btn_toggle"
+                android:textColor="@drawable/my_btn_toggle"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/exerOps_fLay_fragmentHolder"></FrameLayout>
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/exerOps_txt_timing"
+            android:id="@+id/exerOps_txt_timing" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <ToggleButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:textOn="@string/exerOps_tBtn_melo"
+                android:textOff="@string/exerOps_tBtn_melo"
+                android:id="@+id/exerOps_tBtn_melo"
+                android:layout_weight="1"
+                android:checked="false"
+                android:background="@drawable/my_btn_toggle"
+                android:textColor="@drawable/my_btn_toggle"/>
+
+            <ToggleButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:textOn="@string/exerOps_tBtn_harm"
+                android:textOff="@string/exerOps_tBtn_harm"
+                android:id="@+id/exerOps_tBtn_harm"
+                android:layout_weight="1"
+                android:checked="false"
+                android:background="@drawable/my_btn_toggle"
+                android:textColor="@drawable/my_btn_toggle"/>
+
+        </LinearLayout>
 
         <LinearLayout
             android:orientation="horizontal"
