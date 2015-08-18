@@ -3,6 +3,8 @@ package ddra.com.musicapp;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.graphics.Color;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -12,10 +14,9 @@ import android.widget.CheckBox;
 import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
-import android.widget.ToggleButton;
 
 
-public class ExerciseOptions extends ActionBarActivity{
+public class ExerciseOptions extends ActionBarActivity implements OnFragmentInteractionListener {
 
     Theory theory[];
 
@@ -30,6 +31,8 @@ public class ExerciseOptions extends ActionBarActivity{
 
         //set activity title and labels
         setLabels(iType);
+
+        setFragment (iType, savedInstanceState);
 
         setupSeekBar();
 
@@ -91,6 +94,35 @@ public class ExerciseOptions extends ActionBarActivity{
         //set selection label
         TextView t = (TextView) findViewById (R.id.exerOps_txt_selectLbl);
         t.setText(sType + " Selection");
+    }
+
+    public void setFragment (int iType, Bundle savedInstanceState) {
+        // Check that the activity is using the layout version with
+        // the fragment_container FrameLayout
+
+        if (findViewById(R.id.exerOps_fLay_fragmentHolder) != null) {
+
+            // However, if we're being restored from a previous state,
+            // then we don't need to do anything and should return or else
+            // we could end up with overlapping fragments.
+            if (savedInstanceState != null) {
+                return;
+            }
+
+            FragmentManager fm = getSupportFragmentManager();
+
+            Fragment designated;
+
+            if (iType == 0) {
+                designated = new ExerciseOptions_Intervals();
+            } else if (iType == 1) {
+                designated = new ExerciseOptions_Scales();
+            } else {
+                designated = new ExerciseOptions_Chords();
+            }
+            fm.beginTransaction().add(R.id.exerOps_fLay_fragmentHolder, designated).commit();
+
+        }
     }
 
     public void setupSeekBar () {
@@ -156,7 +188,7 @@ public class ExerciseOptions extends ActionBarActivity{
     public void selectAll (View v) {
         int counter = 0;
         for (int i = 0; i < theory.length; i++){
-            CheckBox cb = (CheckBox)findViewById(i);
+            CheckBox cb = (CheckBox) findViewById(i);
             if (cb.isChecked())
                 counter++;
         }
@@ -175,30 +207,11 @@ public class ExerciseOptions extends ActionBarActivity{
     }
 
     public boolean validateOptions () {
-        ToggleButton asc = (ToggleButton)findViewById(R.id.exerOps_tBtn_ascend);
-        ToggleButton des = (ToggleButton)findViewById(R.id.exerOps_tBtn_descend);
-        ToggleButton melo = (ToggleButton)findViewById(R.id.exerOps_tBtn_melo);
-        ToggleButton harm = (ToggleButton)findViewById(R.id.exerOps_tBtn_harm);
         boolean isOneChecked = false;
         for (int i = 0; i < theory.length && !isOneChecked; i++){
             CheckBox cb = (CheckBox) findViewById(i);
             if (cb.isChecked())
                 isOneChecked = true;
-        }
-
-        if (!(asc.isChecked() || des.isChecked())){
-            TextView lbl = (TextView)findViewById(R.id.exerOps_txt_type);
-            lbl.setTextColor(Color.RED);
-        } else {
-            TextView lbl = (TextView)findViewById(R.id.exerOps_txt_type);
-            lbl.setTextColor(getResources().getColor(android.R.color.secondary_text_light));
-        }
-        if (!(melo.isChecked() || harm.isChecked())){
-            TextView lbl = (TextView)findViewById(R.id.exerOps_txt_timing);
-            lbl.setTextColor(Color.RED);
-        } else {
-            TextView lbl = (TextView)findViewById(R.id.exerOps_txt_timing);
-            lbl.setTextColor(getResources().getColor(android.R.color.secondary_text_light));
         }
         if (!isOneChecked){
             TextView lbl = (TextView)findViewById(R.id.exerOps_txt_selectLbl);
@@ -207,7 +220,7 @@ public class ExerciseOptions extends ActionBarActivity{
             TextView lbl = (TextView)findViewById(R.id.exerOps_txt_selectLbl);
             lbl.setTextColor(getResources().getColor(android.R.color.secondary_text_light));
         }
-        return ((asc.isChecked() || des.isChecked()) && (melo.isChecked() || harm.isChecked()) && isOneChecked);
+        return isOneChecked;
     }
 
     public void goToExercise (View v){
@@ -244,5 +257,7 @@ public class ExerciseOptions extends ActionBarActivity{
         }
     };
 
+    public void onFragmentMessage (String TAG, Object data){
+    }
 
 }
