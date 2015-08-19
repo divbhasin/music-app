@@ -4,11 +4,17 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.CheckBox;
+import android.widget.LinearLayout;
+import android.widget.NumberPicker;
+import android.widget.ScrollView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
 
 public class MelodicDictation extends ActionBarActivity {
+
+    int mNumberOfNotes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,6 +24,15 @@ public class MelodicDictation extends ActionBarActivity {
 
         SeekBar exercises = (SeekBar) findViewById(R.id.seek_bar);
         final TextView number = (TextView) findViewById(R.id.seek_bar_number);
+
+        NumberPicker number_of_notes = (NumberPicker) findViewById(R.id.number_picker);
+        initNumberPicker(number_of_notes);
+
+
+        ScrollView view = (ScrollView) findViewById(R.id.scroll_view);
+        LinearLayout layout = (LinearLayout) findViewById(R.id.linear_layout);
+
+        initNotes(layout, view);
 
         exercises.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
 
@@ -34,6 +49,28 @@ public class MelodicDictation extends ActionBarActivity {
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
 
+            }
+        });
+    }
+
+    private void initNotes(LinearLayout l, ScrollView v) {
+        DATABASE db = new DATABASE();
+        for (int i = 0; i < db.intervalName.length; i++) {
+            CheckBox cb = new CheckBox(this);
+            cb.setText(db.intervalName[i] + " (" + db.intervalAbbre[i] + ") ");
+            cb.setId(i);
+            l.addView(cb);
+        }
+    }
+
+    public void initNumberPicker(NumberPicker r) {
+        r.setMaxValue(10);
+        r.setMinValue(3);
+
+        r.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
+            @Override
+            public void onValueChange(NumberPicker picker, int newVal, int oldVal) {
+                mNumberOfNotes = newVal;
             }
         });
     }
