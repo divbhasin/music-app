@@ -7,6 +7,7 @@ import android.view.MenuItem;
 import android.widget.CheckBox;
 import android.widget.LinearLayout;
 import android.widget.NumberPicker;
+import android.widget.RadioGroup;
 import android.widget.ScrollView;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -15,6 +16,7 @@ import android.widget.TextView;
 public class MelodicDictation extends ActionBarActivity {
 
     int mNumberOfNotes;
+    int num_of_exercises;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,8 +24,13 @@ public class MelodicDictation extends ActionBarActivity {
         setTitle("Melodic Dictation Options");
         setContentView(R.layout.activity_melodic_dictation);
 
+        RadioGroup note_range = (RadioGroup)findViewById(R.id.note_range);
+        int notes_range_to_use = note_range.getCheckedRadioButtonId();
+        decideRange(notes_range_to_use);
+
         SeekBar exercises = (SeekBar) findViewById(R.id.seek_bar);
         final TextView number = (TextView) findViewById(R.id.seek_bar_number);
+        num_of_exercises = Integer.parseInt(number.getText().toString());
 
         NumberPicker number_of_notes = (NumberPicker) findViewById(R.id.number_picker);
         initNumberPicker(number_of_notes);
@@ -51,6 +58,14 @@ public class MelodicDictation extends ActionBarActivity {
 
             }
         });
+    }
+
+    private void decideRange(int r) {
+        switch (r) {
+            case R.id.notes_ascending:
+                // then do something to arrange the notes in ascending order
+            break;
+        }
     }
 
     private void initNotes(LinearLayout l, ScrollView v) {

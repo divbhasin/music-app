@@ -66,9 +66,12 @@ public class QuizOptionsFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_quiz_options, container, false);
-        Button mButton = (Button)v.findViewById(R.id.hello_blank_fragment);
-        mButton.setOnClickListener((View view) -> {
-            onButtonPressed(mButton.getId());
+        final Button mButton = (Button)v.findViewById(R.id.hello_blank_fragment);
+        mButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onButtonPressed(mButton.getId());
+            }
         });
         return v;
     }

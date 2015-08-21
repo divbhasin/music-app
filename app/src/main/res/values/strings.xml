@@ -39,6 +39,8 @@
     <string name="notes_melodic">Harmonic</string>
     <string name="notes_harmonic">Melodic</string>
     <string name="seek_bar_number">00</string>
+    <string name="any">Any</string>
+    <string name="note_range">Note range</string>
 =======
     <!--Exercise Options-->
     <string name="title_activity_exercise_options">Exercise Options</string>

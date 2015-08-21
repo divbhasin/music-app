@@ -46,26 +46,30 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal"
-            android:layout_weight="@integer/abc_max_action_buttons">
+            android:layout_weight="@integer/abc_max_action_buttons"
+            android:id="@+id/note_range">
 
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/notes_ascending"
                 android:layout_weight="30"
+                android:id = "@+id/notes_ascending"
                 />
 
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/notes_descending"
-                android:layout_weight="30"/>
+                android:layout_weight="30"
+                android:id = "@+id/notes_descending"/>
 
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Any"
-                android:layout_weight="40"/>
+                android:layout_weight="40"
+                android:id = "@+id/any"/>
 
         </RadioGroup>
 
@@ -142,7 +146,7 @@
 
             <ScrollView
                 android:layout_width="0dp"
-                android:layout_height="250dip"
+                android:layout_height="230dip"
                 android:id="@+id/scroll_view"
                 android:layout_weight="1">
 
@@ -163,7 +167,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <Button
-            android:layout_width="0dp"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="@string/exerOps_btn_start"
             android:layout_weight="1"
