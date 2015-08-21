@@ -41,6 +41,7 @@
     <string name="seek_bar_number">00</string>
     <string name="any">Any</string>
     <string name="note_range">Note range</string>
+    <string name="timing">Timing</string>
 =======
     <!--Exercise Options-->
     <string name="title_activity_exercise_options">Exercise Options</string>

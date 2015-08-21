@@ -28,6 +28,10 @@ public class MelodicDictation extends ActionBarActivity {
         int notes_range_to_use = note_range.getCheckedRadioButtonId();
         decideRange(notes_range_to_use);
 
+        RadioGroup interval_range = (RadioGroup)findViewById(R.id.timing);
+        int interval_range_to_use = interval_range.getCheckedRadioButtonId();
+        decideTiming(interval_range_to_use);
+
         SeekBar exercises = (SeekBar) findViewById(R.id.seek_bar);
         final TextView number = (TextView) findViewById(R.id.seek_bar_number);
         num_of_exercises = Integer.parseInt(number.getText().toString());
@@ -58,6 +62,17 @@ public class MelodicDictation extends ActionBarActivity {
 
             }
         });
+    }
+
+    private void decideTiming(int i) {
+        switch(i) {
+            case R.id.notes_harmonic:
+                // arrange notes to harmonic timing
+                break;
+            case R.id.notes_melodic:
+                // arrange notes to melodic timing
+                break;
+        }
     }
 
     private void decideRange(int r) {
