@@ -1,5 +1,7 @@
 package ddra.com.musicapp;
 
+import android.graphics.Bitmap;
+
 /**
  * ALL EXERCISE DATA HERE
  */
@@ -33,4 +35,9 @@ public class DATABASE {
             {4, 4, 2}};
 
 
+    public static final String noteName[] = {"Whole", "Dotted Half", "Half", "Dotted Quarter",
+            "Quarter", "Dotted Eighth", "Eighth", "Dotted Sixteenth", "Sixteenth", "Triplet Quarter",
+            "Triplet Eighth"};
+    public static final int noteDuration[] = {96, 72, 48, 36, 24, 18, 12, 9, 6, 16, 8};
+    public static final Bitmap noteSymbol[] = {}; //TODO: add bitmaps for each note
 }

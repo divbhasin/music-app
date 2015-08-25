@@ -77,12 +77,6 @@ public class ExerciseOptions extends ActionBarActivity implements OnFragmentInte
             case 2:
                 sType = "Chords";
                 break;
-            case 3:
-                sType = "Melodic Dictation";
-                break;
-            case 4:
-                sType = "Rhythmic Dictation";
-                break;
             default:
                 sType = "ERROR";
         }
@@ -132,7 +126,19 @@ public class ExerciseOptions extends ActionBarActivity implements OnFragmentInte
 
         //set up seekbar to listener
         SeekBar sb = (SeekBar)findViewById(R.id.exerOps_sb_qNum);
-        sb.setOnSeekBarChangeListener(sbListener);
+        sb.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {}
+            @Override
+            public void onStartTrackingTouch (SeekBar seekbar) {}
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
+                if (i == 0)
+                    sbProgress.setText ("inf.");
+                else
+                    sbProgress.setText ("" + i);
+            }
+        });
     }
 
     public Theory[] createTheory(int iType){
@@ -239,23 +245,6 @@ public class ExerciseOptions extends ActionBarActivity implements OnFragmentInte
             alertDialog.show();
         }
     }
-
-    private SeekBar.OnSeekBarChangeListener sbListener = new SeekBar.OnSeekBarChangeListener() {
-        @Override
-        public void onStopTrackingTouch(SeekBar seekBar) {
-
-        }
-
-        public void onStartTrackingTouch (SeekBar seekbar) {}
-
-        @Override
-        public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
-            if (i == 0)
-                sbProgress.setText ("inf.");
-            else
-                sbProgress.setText ("" + i);
-        }
-    };
 
     public void onFragmentMessage (String TAG, Object data){
     }
