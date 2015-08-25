@@ -54,12 +54,6 @@ public class ExerciseSelection extends ActionBarActivity {
             case R.id.exerSel_btn_chords:
                 typeSelected = 2; //CHORDS
                 break;
-            case R.id.exerSel_btn_meloDict:
-                typeSelected = 3; //MELODIC DICTATION
-                break;
-            case R.id.exerSel_btn_rhythDict:
-                typeSelected = 4; //RHYTHMIC DICTATION
-                break;
             default:
                 typeSelected = -1; //ERROR
         }
