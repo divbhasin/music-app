@@ -6,9 +6,8 @@
     <!-- Main Menu -->
     <string name="app_name">MusicApp</string>
     <string name="main_txt_catchphrase">STAND-IN</string>
-<<<<<<< HEAD
+<!-- <<<<<<< HEAD -->
     <!-- buttons -->
-    <string name="main_btn_exercise">Exercises</string>
 =======
     <!--buttons-->
     <string name ="main_btn_exercise">Exercises</string>
@@ -19,9 +18,8 @@
     <!-- Exercise Selection -->
     <string name="title_activity_exercise_selection">Exercise Selection</string>
     <string name="exerSel_txt_ins">Select an exercise to begin!</string>
-<<<<<<< HEAD
+<!-- <<<<<<< HEAD -->
     <!-- buttons -->
-    <string name="exerSel_btn_intervals">Intervals</string>
 =======
     <!--buttons-->
     <string name ="exerSel_btn_intervals">Intervals</string>
@@ -32,19 +30,18 @@
     <string name="exerSel_btn_rhythDict">Rhythmic Dictation</string>
     <string name="exerSel_btn_random">Randomize All!</string>
 
-<<<<<<< HEAD
-    <!-- Exercise Options -->
-    <string name="title_activity_exercise_options">ExerciseOptions</string>
+<!-- <<<<<<< HEAD -->
     <!-- buttons -->
-    <string name="exerOps_btn_start">Start Exercise!</string>
     <string name="title_activity_melodic_dictation">MelodicDictation</string>
-    <string name="hello_world">Hello world!</string>
     <string name="seek_bar">00</string>
     <string name="notes_ascending">Ascending</string>
     <string name="notes_descending">Descending</string>
     <string name="notes_melodic">Harmonic</string>
     <string name="notes_harmonic">Melodic</string>
     <string name="seek_bar_number">00</string>
+    <string name="any">Any</string>
+    <string name="note_range">Note range</string>
+    <string name="timing">Timing</string>
 =======
     <!--Exercise Options-->
     <string name="title_activity_exercise_options">Exercise Options</string>
@@ -85,6 +82,12 @@
 
 <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
->>>>>>> 81a75f22c895c7bc6bd3dbe089334bca0af48092
+    <string name="notes_timing">Timing</string>
+    >>>>>>> 81a75f22c895c7bc6bd3dbe089334bca0af48092
+
+    <string name="number_picker">Number of notes</string>
+    <string name="type_of_note">Type</string>
+    <string name="scroll_view">Scroll View</string>
+    <string name="linear_layout">Linear Layout</string>
 
 </resources>

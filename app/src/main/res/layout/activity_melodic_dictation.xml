@@ -27,134 +27,154 @@
             android:layout_height="wrap_content"
             android:text="00"
             android:id="@+id/seek_bar_number"
-            android:textSize="@dimen/abc_action_bar_progress_bar_size"/>
+            android:textSize="20dp"/>
         </LinearLayout>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Type"
+        android:text="@string/type_of_note"
         android:textSize="@dimen/abc_text_size_subtitle_material_toolbar"/>
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
         >
 
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/notes_ascending"
-            android:layout_weight="50"
-            />
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_weight="@integer/abc_max_action_buttons"
+            android:id="@+id/note_range">
 
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/notes_descending"
-            android:layout_weight="50"/>
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/notes_ascending"
+                android:layout_weight="30"
+                android:id = "@+id/notes_ascending"
+                />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/notes_descending"
+                android:layout_weight="30"
+                android:id = "@+id/notes_descending"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Any"
+                android:layout_weight="40"
+                android:id = "@+id/any"/>
+
+        </RadioGroup>
 
         </LinearLayout>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Timing"
+        android:text="@string/notes_timing"
         android:textSize="@dimen/abc_text_size_subtitle_material_toolbar"/>
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
         >
 
-        <RadioButton
+        <RadioGroup
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/notes_melodic"
-            android:layout_weight="50"
-            />
+            android:orientation="horizontal"
+            android:layout_weight="@integer/abc_max_action_buttons"
+            android:id="@+id/timing">
 
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/notes_harmonic"
-            android:layout_weight="50"/>
+            <RadioButton
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/notes_melodic"
+                android:layout_weight="1"
+                android:id="@+id/notes_harmonic"
+                />
+
+            <RadioButton
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/notes_harmonic"
+                android:layout_weight="1"
+                android:id="@+id/notes_melodic"/>
+
+        </RadioGroup>
 
     </LinearLayout>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Exercises"
+        android:text="Number of notes                        Intervals"
         android:textSize="@dimen/abc_text_size_subtitle_material_toolbar"/>
-
-        <ScrollView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            >
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:scrollbarStyle="insideInset">
+                android:orientation="horizontal"
+                >
 
-                <TextView
+                <NumberPicker
+                    android:layout_width="0px"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/number_picker"
+                    android:orientation="horizontal"
+                    android:layout_weight="1"
+                    >
+
+                    </NumberPicker>
+
+                <View
+                    android:layout_width="100dp"
+                    android:layout_height="50dp">
+
+                    </View>
+
+                <!-- <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="3 notes"
-                    android:textSize="15dp"/>
+                    android:text="Intervals"
+                    android:textSize="12dp"/> -->
 
-            <CheckBox
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Large step major second"/>
-            <CheckBox
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Large step major fourth"/>
+            <ScrollView
+                android:layout_width="0dp"
+                android:layout_height="230dip"
+                android:id="@+id/scroll_view"
+                android:layout_weight="1">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="6 notes"
-                    android:textSize="15dp"
-                    />
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:id="@+id/linear_layout">
 
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Largest step fourth"/>
+                        </LinearLayout>
 
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Largest step major second"/>
+                </ScrollView>
 
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Largest step fourth"/>
-
-
-
-
-
-
-            </LinearLayout>
-
-        </ScrollView>
+        </LinearLayout>
 
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="Start exercise"
-            android:layout_weight="100"
-            />
+            android:text="@string/exerOps_btn_start"
+            android:layout_weight="1"
+            android:layout_gravity="center"/>
 
         </LinearLayout>
 

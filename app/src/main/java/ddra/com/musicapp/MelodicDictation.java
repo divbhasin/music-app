@@ -4,11 +4,19 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.CheckBox;
+import android.widget.LinearLayout;
+import android.widget.NumberPicker;
+import android.widget.RadioGroup;
+import android.widget.ScrollView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
 
 public class MelodicDictation extends ActionBarActivity {
+
+    int mNumberOfNotes;
+    int num_of_exercises;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,8 +24,26 @@ public class MelodicDictation extends ActionBarActivity {
         setTitle("Melodic Dictation Options");
         setContentView(R.layout.activity_melodic_dictation);
 
+        RadioGroup note_range = (RadioGroup)findViewById(R.id.note_range);
+        int notes_range_to_use = note_range.getCheckedRadioButtonId();
+        decideRange(notes_range_to_use);
+
+        RadioGroup interval_range = (RadioGroup)findViewById(R.id.timing);
+        int interval_range_to_use = interval_range.getCheckedRadioButtonId();
+        decideTiming(interval_range_to_use);
+
         SeekBar exercises = (SeekBar) findViewById(R.id.seek_bar);
         final TextView number = (TextView) findViewById(R.id.seek_bar_number);
+        num_of_exercises = Integer.parseInt(number.getText().toString());
+
+        NumberPicker number_of_notes = (NumberPicker) findViewById(R.id.number_picker);
+        initNumberPicker(number_of_notes);
+
+
+        ScrollView view = (ScrollView) findViewById(R.id.scroll_view);
+        LinearLayout layout = (LinearLayout) findViewById(R.id.linear_layout);
+
+        initNotes(layout, view);
 
         exercises.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
 
@@ -34,6 +60,47 @@ public class MelodicDictation extends ActionBarActivity {
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
 
+            }
+        });
+    }
+
+    private void decideTiming(int i) {
+        switch(i) {
+            case R.id.notes_harmonic:
+                // arrange notes to harmonic timing
+                break;
+            case R.id.notes_melodic:
+                // arrange notes to melodic timing
+                break;
+        }
+    }
+
+    private void decideRange(int r) {
+        switch (r) {
+            case R.id.notes_ascending:
+                // then do something to arrange the notes in ascending order
+            break;
+        }
+    }
+
+    private void initNotes(LinearLayout l, ScrollView v) {
+        DATABASE db = new DATABASE();
+        for (int i = 0; i < db.intervalName.length; i++) {
+            CheckBox cb = new CheckBox(this);
+            cb.setText(db.intervalName[i] + " (" + db.intervalAbbre[i] + ") ");
+            cb.setId(i);
+            l.addView(cb);
+        }
+    }
+
+    public void initNumberPicker(NumberPicker r) {
+        r.setMaxValue(10);
+        r.setMinValue(3);
+
+        r.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
+            @Override
+            public void onValueChange(NumberPicker picker, int newVal, int oldVal) {
+                mNumberOfNotes = newVal;
             }
         });
     }
