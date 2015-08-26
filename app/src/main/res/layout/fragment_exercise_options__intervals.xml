@@ -34,43 +34,4 @@
 
     </RadioGroup>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="@string/exerOps_txt_dir"
-        android:id="@+id/intervalOps_txt_dir"
-        />
-
-    <RadioGroup
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/exerOps_rb_ascend"
-            android:id="@+id/intervalOps_rb_ascend"
-            android:checked="true"
-            android:layout_weight="1" />
-
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/exerOps_rb_descend"
-            android:id="@+id/intervalOps_rb_descend"
-            android:checked="false"
-            android:layout_weight="1" />
-
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/exerOps_rb_any"
-            android:id="@+id/intervalOps_rb_dirAny"
-            android:checked="false"
-            android:layout_weight="1" />
-    </RadioGroup>
-
-
 </LinearLayout>

@@ -46,10 +46,11 @@
             android:name="ddra.com.musicapp.ExerciseOptions_Intervals"
             android:id="@+id/fragment" /-->
 
-        <FrameLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/exerOps_fLay_fragmentHolder"></FrameLayout>
+            android:orientation="vertical"
+            android:id="@+id/exerOps_fLay_fragmentHolder"></LinearLayout>
 
         <LinearLayout
             android:orientation="horizontal"
