@@ -2,6 +2,7 @@ package ddra.com.musicapp;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -12,13 +13,21 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
 import android.widget.SeekBar;
 import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class ExerciseOptions extends ActionBarActivity implements OnFragmentInteractionListener {
 
+    int iType;
+
     Theory theory[];
+
+    SeekBar sb;
 
     TextView sbProgress;
 
@@ -27,7 +36,7 @@ public class ExerciseOptions extends ActionBarActivity implements OnFragmentInte
         super.onCreate(savedInstanceState);
 
         //get exercise type number selected
-        int iType = getIntent().getIntExtra(ExerciseSelection.MESSAGE_EXERSEL, -1);
+        iType = getIntent().getIntExtra(ExerciseSelection.MESSAGE_EXERSEL, -1);
 
         //set activity title and labels
         setLabels(iType);
@@ -105,14 +114,18 @@ public class ExerciseOptions extends ActionBarActivity implements OnFragmentInte
 
             FragmentManager fm = getSupportFragmentManager();
 
-            Fragment designated;
+            Fragment designated = null;
 
-            if (iType == 0) {
-                designated = new ExerciseOptions_Intervals();
-            } else if (iType == 1) {
-                designated = new ExerciseOptions_Scales();
-            } else {
+            switch (iType){
+                case 0:
+                    designated = new ExerciseOptions_Intervals();
+                case 1:
+                    Fragment designated2 = new ExerciseOptions_Scales();
+                    fm.beginTransaction().add(R.id.exerOps_fLay_fragmentHolder, designated2).commit();
+                    break;
+                case 2:
                 designated = new ExerciseOptions_Chords();
+                    break;
             }
             fm.beginTransaction().add(R.id.exerOps_fLay_fragmentHolder, designated).commit();
 
@@ -125,7 +138,7 @@ public class ExerciseOptions extends ActionBarActivity implements OnFragmentInte
         sbProgress.setText("inf.");
 
         //set up seekbar to listener
-        SeekBar sb = (SeekBar)findViewById(R.id.exerOps_sb_qNum);
+        sb = (SeekBar)findViewById(R.id.exerOps_sb_qNum);
         sb.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {}
@@ -231,7 +244,39 @@ public class ExerciseOptions extends ActionBarActivity implements OnFragmentInte
 
     public void goToExercise (View v){
         if (validateOptions()) {
-            //PUT ALL THE EXTRAS INTO AN INTENT AND CHANGE ACTIVITY
+            Intent startExer = new Intent (this, Quiz.class);
+            //selected options passed to Quiz activity
+
+            //pass quiz type
+            startExer.putExtra ("iType", iType);
+
+            //pass number of questions
+            startExer.putExtra ("qNum", sb.getProgress());
+
+            //pass list of chosen intervals/scales/chords
+            List <Theory> passedTheory = new ArrayList<Theory>();
+            for (int i = 0; i < theory.length; i++ ){
+                CheckBox cb = (CheckBox) findViewById(i);
+                if (cb.isChecked())
+                    passedTheory.add (theory[i]);
+            }
+            Theory passedTheoryFinal[] = new Theory [passedTheory.size()];
+            passedTheoryFinal = passedTheory.toArray(passedTheoryFinal);
+            startExer.putExtra ("theoryList", passedTheoryFinal);
+
+            //pass different options depending on quiz type selected
+            switch (iType){
+                case 0:
+                    startExer.putExtra ("type", determineType());
+                case 1:
+                    startExer.putExtra ("direction", determineDirection ());
+                    break;
+                case 2:
+                    startExer.putExtra ("inv", determineInversions());
+                    startExer.putExtra ("voicing", determineVoicing());
+                    break;
+            }
+            startActivity (startExer);
         } else {
             AlertDialog alertDialog = new AlertDialog.Builder(ExerciseOptions.this).create();
             alertDialog.setTitle("Settings Invalid");
@@ -244,6 +289,48 @@ public class ExerciseOptions extends ActionBarActivity implements OnFragmentInte
                     });
             alertDialog.show();
         }
+    }
+
+    //harmonic = 0, melodic = 1
+    public int determineType () {
+        RadioButton rb;
+        rb = (RadioButton) findViewById(R.id.intervalOps_rb_melo);
+        if (rb.isChecked())
+            return 0;
+        return 1;
+    }
+
+    //ascending = 0, descending = 1, any = 2
+    public int determineDirection (){
+            RadioButton rb;
+            rb = (RadioButton) findViewById(R.id.intervalOps_rb_ascend);
+            if (rb.isChecked())
+                return 0;
+            rb = (RadioButton) findViewById(R.id.intervalOps_rb_descend);
+            if (rb.isChecked())
+                return 1;
+        return 2;
+    }
+
+    //inversion = 0, no inversions = 1
+    public int determineInversions (){
+        CheckBox cb;
+        cb = (CheckBox) findViewById(R.id.chordOps_cb_inv);
+        if (cb.isChecked())
+            return 0;
+        return 1;
+    }
+
+    //closed = 0, open = 1, any = 2
+    public int determineVoicing (){
+        RadioButton rb;
+        rb = (RadioButton) findViewById(R.id.chordOps_rb_cd);
+        if (rb.isChecked())
+            return 0;
+        rb = (RadioButton) findViewById(R.id.chordOps_rb_op);
+        if (rb.isChecked())
+            return 1;
+        return 2;
     }
 
     public void onFragmentMessage (String TAG, Object data){
