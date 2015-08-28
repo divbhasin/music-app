@@ -1,16 +1,47 @@
 package ddra.com.musicapp;
 
+import android.os.Parcelable;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Quiz extends ActionBarActivity {
+    Theory chosenTheory[];
+    int iType;
+    int maxQNum;
+    List<Integer> quizSpecs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
+
+        iType = getIntent().getIntExtra("iType", 0);
+
+        maxQNum = getIntent().getIntExtra ("qNum", 0);
+
+        Parcelable[] p = getIntent().getParcelableArrayExtra("theoryList");
+        chosenTheory = new Theory [p.length];
+        for (int i = 0; i < p.length; i++){
+            chosenTheory[i] = (Theory)p[i];
+        }
+
+        quizSpecs = new ArrayList<>();
+        switch (iType){
+            case 0:
+                quizSpecs.add(getIntent().getIntExtra("type", 0));
+            case 1:
+                quizSpecs.add(getIntent().getIntExtra("direction", 0));
+                break;
+            case 2:
+                quizSpecs.add(getIntent().getIntExtra("inv", 0));
+                quizSpecs.add (getIntent().getIntExtra("voicing", 0));
+                break;
+        }
     }
 
     @Override

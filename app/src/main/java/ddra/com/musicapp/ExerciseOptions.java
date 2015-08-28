@@ -4,6 +4,8 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.ActionBarActivity;
@@ -21,7 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class ExerciseOptions extends ActionBarActivity implements OnFragmentInteractionListener {
+public class ExerciseOptions extends ActionBarActivity implements OnFragmentInteractionListener{
 
     int iType;
 
@@ -114,7 +116,7 @@ public class ExerciseOptions extends ActionBarActivity implements OnFragmentInte
 
             FragmentManager fm = getSupportFragmentManager();
 
-            Fragment designated = null;
+            Fragment designated = new Fragment();
 
             switch (iType){
                 case 0:
@@ -254,7 +256,7 @@ public class ExerciseOptions extends ActionBarActivity implements OnFragmentInte
             startExer.putExtra ("qNum", sb.getProgress());
 
             //pass list of chosen intervals/scales/chords
-            List <Theory> passedTheory = new ArrayList<Theory>();
+            List <Theory> passedTheory = new ArrayList<>();
             for (int i = 0; i < theory.length; i++ ){
                 CheckBox cb = (CheckBox) findViewById(i);
                 if (cb.isChecked())
@@ -262,7 +264,7 @@ public class ExerciseOptions extends ActionBarActivity implements OnFragmentInte
             }
             Theory passedTheoryFinal[] = new Theory [passedTheory.size()];
             passedTheoryFinal = passedTheory.toArray(passedTheoryFinal);
-            startExer.putExtra ("theoryList", passedTheoryFinal);
+            startExer.putExtra("theoryList", passedTheoryFinal);
 
             //pass different options depending on quiz type selected
             switch (iType){
@@ -312,13 +314,11 @@ public class ExerciseOptions extends ActionBarActivity implements OnFragmentInte
         return 2;
     }
 
-    //inversion = 0, no inversions = 1
-    public int determineInversions (){
+    //returns whether or not to add chord inversions to the quiz
+    public boolean determineInversions (){
         CheckBox cb;
         cb = (CheckBox) findViewById(R.id.chordOps_cb_inv);
-        if (cb.isChecked())
-            return 0;
-        return 1;
+        return (cb.isChecked());
     }
 
     //closed = 0, open = 1, any = 2
@@ -332,8 +332,7 @@ public class ExerciseOptions extends ActionBarActivity implements OnFragmentInte
             return 1;
         return 2;
     }
-
-    public void onFragmentMessage (String TAG, Object data){
-    }
-
+        @Override
+        public void onFragmentMessage(String TAG, Object data) {
+        }
 }
