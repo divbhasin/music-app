@@ -162,9 +162,9 @@ public class ExerciseOptions extends ActionBarActivity implements OnFragmentInte
         switch (iType) {
             case 0: //intervals
                 numOf = DATABASE.intervalName.length;
-                int stepArray[] = new int[1];
                 theo = new Theory[numOf];
                 for (int i = 0; i < numOf; i++) {
+                    int stepArray[] = new int[1];
                     stepArray[0] = i;
                     theo[i] = new Theory (DATABASE.intervalName[i], DATABASE.intervalAbbre[i], stepArray);
                 } break;
@@ -298,8 +298,8 @@ public class ExerciseOptions extends ActionBarActivity implements OnFragmentInte
         RadioButton rb;
         rb = (RadioButton) findViewById(R.id.intervalOps_rb_melo);
         if (rb.isChecked())
-            return 0;
-        return 1;
+            return 1;
+        return 0;
     }
 
     //ascending = 0, descending = 1, any = 2
