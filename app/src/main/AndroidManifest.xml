@@ -48,6 +48,10 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="ddra.com.musicapp.ExerciseSelection" />
         </activity>
+        <activity
+            android:name=".RythmicDictation"
+            android:label="@string/title_activity_rythmic_dictation" >
+        </activity>
     </application>
 
 </manifest>

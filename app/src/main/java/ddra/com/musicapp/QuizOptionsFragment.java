@@ -70,7 +70,10 @@ public class QuizOptionsFragment extends Fragment {
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                onButtonPressed(mButton.getId());
+                if (mButton.getText().toString().equals("Keyboard"))
+                    onButtonPressed(1);
+                else
+                    onButtonPressed(2);
             }
         });
         return v;

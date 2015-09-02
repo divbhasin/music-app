@@ -1,7 +1,10 @@
 package ddra.com.musicapp;
 
+import android.app.Activity;
+import android.app.FragmentManager;
 import android.media.SoundPool;
 import android.media.AudioManager;
+import android.os.AsyncTask;
 import android.os.Parcelable;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -11,7 +14,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class Quiz extends ActionBarActivity implements SoundPool.OnLoadCompleteListener{
+public class Quiz extends ActionBarActivity implements SoundPool.OnLoadCompleteListener, QuizOptionsFragment.OnFragmentInteractionListener{
 
     //TODO: add multiple threads
 
@@ -34,6 +37,8 @@ public class Quiz extends ActionBarActivity implements SoundPool.OnLoadCompleteL
 
         this.setVolumeControlStream(AudioManager.STREAM_MUSIC);
 
+        loadFragment(2);
+
         sp = new SoundPool (spMaxStreamNum, AudioManager.STREAM_MUSIC, 0);
         sp.setOnLoadCompleteListener(this);
 
@@ -46,6 +51,21 @@ public class Quiz extends ActionBarActivity implements SoundPool.OnLoadCompleteL
         generateQuestion();
 
         loadQuestion();
+    }
+
+    // Loads a specific fragment (keyboard or options) based on the id
+    public void loadFragment(int id) {
+
+        FragmentManager fm = getFragmentManager();
+        android.app.FragmentTransaction transaction = fm.beginTransaction();
+
+        if (id == 2) {
+            QuizOptionsFragment fragment = QuizOptionsFragment.newInstance("QuizOptionsFragment", this.getLocalClassName());
+            transaction.add(R.id.view_group_quiz, fragment).commit();
+        }
+        else {
+            //TODO:Load keyboard fragment here
+        }
     }
 
     public void getConfigurations () {
@@ -160,9 +180,53 @@ public class Quiz extends ActionBarActivity implements SoundPool.OnLoadCompleteL
     @Override
     public void onLoadComplete(SoundPool soundPool, int soundid, int status) {
         if (soundid == savedNotes.length) {
-            playQuestion();
+
+           new Thread(new Runnable() {
+               @Override
+                public void run() {
+                   playQuestion();
+               }
+           }).start();
+
+            // new PlaySoundTask().execute(soundPool);
+
+            /* new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    while(!Thread.interrupted()) {
+                        final SoundPool sound = new SoundPool(8, AudioManager.STREAM_MUSIC, 0);
+                        sound.setOnLoadCompleteListener(new SoundPool.OnLoadCompleteListener() {
+                            @Override
+                            public void onLoadComplete(SoundPool soundPool, int sampleId, int status) {
+                                for (int i = 1; i < savedNotes.length + 1; i++) {
+                                    sound.play(i, 1, 1, 1, 1, 1);
+                                }
+                            }
+                        });
+                       }
+                    }
+            }).start(); */
+
             //TODO: START TIMER
             //TODO: Add to another thread
         }
     }
+
+    @Override
+    public void onFragmentInteraction(int id) {
+        loadFragment(id);
+    }
+
+    /* private class PlaySoundTask extends AsyncTask<String, Void, SoundPool> {
+
+        @Override
+        protected SoundPool doInBackground(String... params) {
+            return new SoundPool;
+        }
+
+        protected void onPostExecute(SoundPool result) {
+            for (int i = 1; i < savedNotes.length + 1; i++) {
+                result.play(i, 1, 1, 1, 1, 1);
+        }
+    } */
 }
